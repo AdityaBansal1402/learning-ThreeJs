@@ -10,7 +10,11 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize( window.innerWidth,window.innerHeight);
 
 window.addEventListener('resize',()=>{
-  renderer.setSize( window.innerWidth,window.innerHeight);
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
   
 })
 camera.position.setZ(30);
